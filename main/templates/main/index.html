@@ -1,0 +1,36 @@
+{% extends 'main/nicelayout.html' %}
+{% load static %}
+{% block title_content %}
+    Главная стр
+{% endblock %}
+
+{% block body_content %}
+
+
+    <div class="container">
+        <div class="content-container">
+
+            <div class="movie-list-container">
+                <br>
+                <h1 class="movie-list-title">Афиша</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        {% for f in films %}
+                            <div class="movie-list-item">
+
+                                <img class="movie-list-item-img" src="{{ f.film_photo.url }}" alt="">
+                                <span class="movie-list-item-title">{{ f.film_title }}</span>
+                            </div>
+
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+

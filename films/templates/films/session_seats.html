@@ -1,0 +1,15 @@
+{% extends 'main/nicelayout.html' %}
+{% load static %}
+<h1>{{ session }}</h1>
+
+  {% block body_content %}
+      <form method="post" action="{% url 'session_seats' session_id=1 %}">
+            {% csrf_token %}
+            {{ form.seattt }}
+          <br>
+            {{ form.phone_number }}
+        <br>
+        <input type="submit" value="Забронировать">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'main/nicelayout.html' %}
+{% load static %}
+{% block title_content %}dsfdff13 аыа{% endblock %}
+
+{% block body_content %}
+    <h1>Выберите желаемый фильм</h1>
+    <h2>В прокате сейчас:</h2>
+        {% for f in films %}
+
+
+            <div class="content-container">
+                <div class="movie-list-container">
+                    <div class="movie-list-item">
+
+                            <img class="movie-list-item-img" src="{{ f.film_photo.url }}" alt="">
+                            <span class="movie-list-item-title">{{ f.film_title }}</span>
+
+                        {#                                переброс на форму выбора места #}
+
+
+
+                            <a class="film-text"> <b>Жанр:</b>{{ f.filf_genre }} <br> <b>Длительность:</b> {{ f.duration }} минут
+                                <br> <b>Начало проката:</b> {{ f.start_show }} <br>  <b>Окончание проката:</b> {{ f.end_show }}
+                            </a>
+
+                            <button class="movie-list-item-button">Купить</button>
+                            <a href="{% url 'film_details' f.id %}" class="film-button"> Выбрать сеанс </a>
+
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        {% endfor %}
+
+{% endblock %}
+

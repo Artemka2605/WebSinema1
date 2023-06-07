@@ -1,0 +1,32 @@
+{% extends 'main/nicelayout.html' %}
+{% load static %}
+<h1>{{ session }}</h1>
+
+  {% block body_content %}
+
+      <h1 class="film-title">Сеанс: {{ session}}</h1>
+
+      <form method="post" action="{% url 'session_seats' session.id %}">
+            {% csrf_token %}
+          <div class="n-info">
+              <p>При успешной покупке билета, вы окажетесь на странице с выбором фильмов, иначе, останетесь здесь</p>
+              <p>Учтите, что места выбираются слева. Правее представлено фото зала</p>
+          </div>
+
+            {{ form.seattt }}
+          <br>
+            {{ form.phone_number }}
+        <br>
+
+        <input type="submit" value="Забронировать">
+        <h1 style="text-align: center"> <img src="{% static 'main/img/zal.png' %}" alt=""></h1>
+    </form>
+
+
+
+
+
+
+
+
+{% endblock %}

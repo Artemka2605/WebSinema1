@@ -1,0 +1,25 @@
+{% extends 'main/nicelayout.html' %}
+{% load static %}
+
+  {% block body_content %}
+      <br>
+      {% for s in session %}
+            <a href="{% url 'session_seats' s.id %}" > <b>Начало сеанса:</b> {{ s.start_time }} </a>
+            <br>
+      {% endfor %}
+
+        <br>
+      <a class="film-text2"><b>Описание:</b> {{ film.film_description }} <br> <b>Жанр:</b>{{ film.filf_genre }} <br> <b>Длительность:</b> {{ film.duration }} минут
+          <br> <b>Начало проката:</b> {{ film.start_show }} <br>  <b>Окончание проката:</b> {{ film.end_show }}
+      </a>
+      <br> <img class="movie-list-item-img2" src="{{ film.film_photo.url }}" alt="">
+
+
+
+
+{#       <a href="{% url 'film_detail' film.id %}" class="film-button"> Выбрать сеанс </a>#}
+
+
+
+
+{% endblock %}
